@@ -6,6 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Summary: Tools to help get rolling faster with .
 * v0.000
+* canaan is gay
 
 ### How do I get set up? ###
 
