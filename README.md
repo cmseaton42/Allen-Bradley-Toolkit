@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Summary: Tools to help get rolling faster with .
+* Summary: Tools to help get rolling faster with Projects.
 * v0.000
 
 
