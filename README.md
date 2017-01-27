@@ -6,7 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Summary: Tools to help get rolling faster with .
 * v0.000
-* Josh is really the one who is gayyy.... duh
+
 
 
 ### How do I get set up? ###
