@@ -1,6 +1,6 @@
 from enum import Enum
 import lxml
 
-Class Test():
+class Test:
     def __init__(self):
         print "test"
