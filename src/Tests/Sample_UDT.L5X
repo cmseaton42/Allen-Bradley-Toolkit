@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content
+    SchemaRevision="1.0"
+    SoftwareRevision="30.00"
+    TargetName="Sample"
+    TargetType="DataType"
+    ContainsContext="true"
+    Owner="Operator"
+    ExportDate="Sat Jan 28 14:05:43 2017"
+    ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+    <Controller Use="Context" Name="Sample">
+        <DataTypes Use="Context">
+            <DataType Use="Target" Name="Sample" Family="NoFamily" Class="User">
+                <Members>
+                    <Member Name="ZZZZZZZZZZSample0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+                    <Member Name="Bit0" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZSample0" BitNumber="0" ExternalAccess="Read/Write"/>
+                    <Member Name="Bit1" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZSample0" BitNumber="1" ExternalAccess="Read/Write"/>
+                    <Member Name="Sint0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+                    <Member Name="Dint0" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+                </Members>
+            </DataType>
+        </DataTypes>
+    </Controller>
+</RSLogix5000Content>
