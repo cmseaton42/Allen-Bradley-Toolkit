@@ -86,6 +86,9 @@ class Datatype():
     def getMembersRoot(self):
         return self.Members
 
+    def addMember(self, member):
+        self.Members.append(member.getLocalRoot())
+
     def setAttribute(self, **kwargs):
         for key in kwargs:
             if not key in self.root.keys():

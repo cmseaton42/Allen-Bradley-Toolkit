@@ -31,7 +31,7 @@ def DatatypeTest():
     memList.append(Member('sint1', CommonType.SINT, Description = 'blah'))
 
     for mem in memList:
-        mem.setParent(dt.getMembersRoot())
+        dt.addMember(mem)
 
     root.append(dt.getLocalRoot())
 
