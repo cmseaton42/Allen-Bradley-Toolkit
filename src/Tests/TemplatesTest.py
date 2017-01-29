@@ -11,11 +11,13 @@ from lxml import etree
 def MemberTest():
     root = etree.Element('Members')
 
-    testMember1 = Member('someTag1', CommonType.INT)
+    desc = "Just a Test Tag"
+    testMember1 = Member('someTag1', CommonType.INT, Description = desc)
     testMember2 = Member('someTag2', CommonType.STRING)
 
     testMember1.setParent(root)
     testMember2.setParent(root)
+
     print etree.tostring(root, pretty_print = True)
 
 if __name__ == '__main__':

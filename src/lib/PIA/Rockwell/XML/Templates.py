@@ -7,24 +7,36 @@ except ImportError as e:
 from enum import Enum
 
 class Member():
+    '''
+    Member Structure:
+    See L5X Manual for Details,
+    These members are to be used when defining a datatype.
+    '''
     def __init__(self, TagName, DataType, Hidden = False, Description = "", Radix = "Decimal", ArrayLength = 0, Target = "", BitNumber = 0):
             self.root = etree.Element('Member')
             self.root.set("Name", TagName)
-            self.root.set("Datatype", DataType)
+            self.root.set("Datatype", str(DataType))
             self.root.set("Dimension",str(ArrayLength))
             self.root.set("Radix", Radix)
-            if DataType = "BIT":
+            if DataType == "BIT":
+                #Reference Rockwell Manuals for Bit Overlays for details on the following assertion.
+                if Target == "": raise ValueError("Data of Type BOOL<BIT> Must have a Target: eg. target = 'ZZZZZZZZZZSample0'")
                 self.root.set("Hidden", "false")
                 self.root.set("Target", Target)
                 self.root.set("BitNumber", str(BitNumber))
-            elif Hidden = True:
+            elif Hidden == True:
                 self.root.set("Hidden", "true")
             else:
                 self.root.set("Hidden", "false")
             self.root.set("ExternalAccess", "Read/Write")
             if Description != "":
                 self.Desc = etree.SubElement(self.root, 'Description')
+                self.setDescription(Description)
                 self.root.append(self.Desc)
+
+    def setDescription(self, Description):
+        assert type(Description) == str
+        self.Desc.text = etree.CDATA(Description)
 
     def setParent(self, root):
         assert etree.iselement(root) and root.tag == "Members"
