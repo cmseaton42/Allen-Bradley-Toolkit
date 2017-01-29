@@ -47,7 +47,7 @@ class Member():
 
     def setDescription(self, Description):
         assert type(Description) == str
-        if self.Desc = None:
+        if self.Desc == None:
             self.Desc = etree.SubElement(self.root, 'Description')
             self.root.append(self.Desc)
         self.Desc.text = etree.CDATA(Description)
@@ -73,6 +73,7 @@ class Datatype():
     def __init__(self, TypeName, Description = ""):
             #Initialize Member Attributes
             self.root = etree.Element("Datatype")
+            self.root.set("Name", TypeName)
             self.root.set("Family", "NoFamily")
             self.root.set("Class", "User")
             if Description != "":
@@ -95,7 +96,7 @@ class Datatype():
 
     def setDescription(self, Description):
         assert type(Description) == str
-        if self.Desc = None:
+        if self.Desc == None:
             self.Desc = etree.SubElement(self.root, 'Description')
             self.root.append(self.Desc)
         self.Desc.text = etree.CDATA(Description)

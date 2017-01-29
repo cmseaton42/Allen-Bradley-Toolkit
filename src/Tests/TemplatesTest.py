@@ -20,5 +20,24 @@ def MemberTest():
 
     print etree.tostring(root, pretty_print = True)
 
+def DatatypeTest():
+    root = etree.Element('Datatypes')
+
+    dt = Datatype('Sample', Description = 'just for fun')
+
+    memList = []
+
+    memList.append(Member('sint0', CommonType.SINT, Description = 'some random sint'))
+    memList.append(Member('sint1', CommonType.SINT, Description = 'blah'))
+
+    for mem in memList:
+        mem.setParent(dt.getMembersRoot())
+
+    root.append(dt.getLocalRoot())
+
+    print etree.tostring(root, pretty_print = True)
+
+
 if __name__ == '__main__':
     MemberTest()
+    DatatypeTest()
