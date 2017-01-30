@@ -1,7 +1,7 @@
 from enum import Enum
 
 class CommonType:
-    BOOL = "BIT"
+    BOOL = "BOOL"
     SINT = "SINT"
     INT  = "INT"
     DINT = "DINT"
