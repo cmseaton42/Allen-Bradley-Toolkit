@@ -4,7 +4,7 @@ try:
 except ImportError as e:
     print e.message
 
-from enum import Enum
+from Tools import *
 
 class Member():
     '''
@@ -16,6 +16,7 @@ class Member():
     '''
     def __init__(self, TagName, DataType, Hidden = False, Description = "", Radix = "Decimal", ArrayLength = 0, Target = "", BitNumber = 0):
             #Initialize Member Attributes
+            assert isValidTag(TagName)
             if DataType == "BOOL": DataType = "BIT"
             self.root = etree.Element('Member')
             self.root.set("Name", TagName)
@@ -73,6 +74,7 @@ class Datatype():
     '''
     def __init__(self, TypeName, Description = ""):
             #Initialize Member Attributes
+            assert isValidTag(TypeName)
             self.root = etree.Element("Datatype")
             self.root.set("Name", TypeName)
             self.root.set("Family", "NoFamily")
@@ -125,7 +127,8 @@ class Tag():
     '''
     def __init__(self, TagName, DataType, TagType =  "Base", Description = "", Radix = "Decimal", Constant = "false", ArrayLength = 0):
             #Initialize Member Attributes
-            self.root = etree.Element('Member')
+            assert isValidTag(TagName)
+            self.root = etree.Element('Tag')
             self.root.set("Name", TagName)
             self.root.set("TagType", TagType)
             self.root.set("Datatype", str(DataType))

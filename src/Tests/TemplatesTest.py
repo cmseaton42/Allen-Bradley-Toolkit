@@ -37,7 +37,19 @@ def DatatypeTest():
 
     print etree.tostring(root, pretty_print = True)
 
+def TagTest():
+    root = etree.Element('Tags')
+
+    Tag1 = Tag('Hello_World', CommonType.BOOL)
+    Tag2 = Tag('SomeOtherTag', CommonType.SINT)
+
+    root.append(Tag1.getLocalRoot())
+    root.append(Tag2.getLocalRoot())
+
+    print etree.tostring(root, pretty_print = True)
+
 
 if __name__ == '__main__':
     MemberTest()
     DatatypeTest()
+    TagTest()
