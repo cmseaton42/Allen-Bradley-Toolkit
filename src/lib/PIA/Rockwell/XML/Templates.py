@@ -28,7 +28,7 @@ class Project():
         return True
 
     def addController(self, Controller):
-        assert etree.iselement(Controller.getLocalRoot()) and Controller.getLocalRoot().tag = "Controller"
+        assert etree.iselement(Controller.getLocalRoot()) and Controller.getLocalRoot().tag == "Controller"
         if not self.checkIfChild("Controller"):
             self.Controller = etree.SubElement(self.root, "Controller")
         self.Controller.append(Datatype)
@@ -67,31 +67,31 @@ class Controller():
         return True
 
     def addDatatype(self, Datatype):
-        assert etree.iselement(Datatype.getLocalRoot()) and Datatype.getLocalRoot().tag = "Datatype"
+        assert etree.iselement(Datatype.getLocalRoot()) and Datatype.getLocalRoot().tag == "Datatype"
         if not self.checkIfChild("Datatypes"):
             self.Datatypes = etree.SubElement(self.root, "Datatypes")
         self.Datatypes.append(Datatype)
 
     def addModule(self, Module):
-        assert etree.iselement(Module.getLocalRoot()) and Module.getLocalRoot().tag = "Module"
+        assert etree.iselement(Module.getLocalRoot()) and Module.getLocalRoot().tag == "Module"
         if not self.checkIfChild("Modules"):
             self.Modules = etree.SubElement(self.root, "Modules")
         self.Modules.append(Datatype)
 
     def addAddOnInstructionDefinition(self, AddOnInstructionDefinition):
-        assert etree.iselement(AddOnInstructionDefinition.getLocalRoot()) and AddOnInstructionDefinition.getLocalRoot().tag = "AddOnInstructionDefinition"
+        assert etree.iselement(AddOnInstructionDefinition.getLocalRoot()) and AddOnInstructionDefinition.getLocalRoot().tag == "AddOnInstructionDefinition"
         if not self.checkIfChild("AddOnInstructionDefinitions"):
             self.AddOnInstructionDefinitions = etree.SubElement(self.root, "AddOnInstructionDefinitions")
         self.AddOnInstructionDefinitions.append(Datatype)
 
     def addProgram(self, Program):
-        assert etree.iselement(Program.getLocalRoot()) and Program.getLocalRoot().tag = "Program"
+        assert etree.iselement(Program.getLocalRoot()) and Program.getLocalRoot().tag == "Program"
         if not self.checkIfChild("Programs"):
             self.Programs = etree.SubElement(self.root, "Programs")
         self.Programs.append(Datatype)
 
     def addTask(self, Task):
-        assert etree.iselement(Task.getLocalRoot()) and Task.getLocalRoot().tag = "Task"
+        assert etree.iselement(Task.getLocalRoot()) and Task.getLocalRoot().tag == "Task"
         if not self.checkIfChild("Tasks"):
             self.Tasks = etree.SubElement(self.root, "Tasks")
         self.Tasks.append(Datatype)
@@ -317,13 +317,13 @@ class Program():
         return True
 
     def addRoutine(self, Routine):
-        assert etree.iselement(Routine.getLocalRoot()) and Routine.getLocalRoot().tag = "Routine"
+        assert etree.iselement(Routine.getLocalRoot()) and Routine.getLocalRoot().tag == "Routine"
         if not self.checkIfChild("Routines"):
             self.Routines = etree.SubElement(self.root, "Routines")
         self.Routines.append(Routine)
 
     def addTag(self, Tag):
-        assert etree.iselement(Tag.getLocalRoot()) and Tag.getLocalRoot().tag = "Tag"
+        assert etree.iselement(Tag.getLocalRoot()) and Tag.getLocalRoot().tag == "Tag"
         if not self.checkIfChild("Tags"):
             self.Tags = etree.SubElement(self.root, "Tags")
         self.Tags.append(Tag)
@@ -379,7 +379,7 @@ class Routine():
         return True
 
     def addRung(self, Rung):
-        assert etree.iselement(Rung.getLocalRoot()) and Rung.getLocalRoot().tag = "Rung"
+        assert etree.iselement(Rung.getLocalRoot()) and Rung.getLocalRoot().tag == "Rung"
         if not self.checkIfChild("RLLContent"):
             self.RLLContent = etree.SubElement(self.root, "RLLContent")
         self.RLLContent.append(Rung)
