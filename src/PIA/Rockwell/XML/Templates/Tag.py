@@ -29,6 +29,26 @@ class Tag():
                 self.setDescription(Description)
                 self.root.append(self.Desc)
 
+    def checkIfChild(self, nodeTag):
+        assert type(nodeTag) == str
+        for node in self.root:
+            if node.tag == NodeTag: return False
+        return True
+
+    def addComment(self, comment, specifier):
+        assert type(comment) == str and type(specifier) == str
+        if not self.checkIfChild("Comments"):
+            self.Comments = etree.SubElement(self.root, "Comments")
+
+        node = etree.SubElement(self.Comments, "Comment")
+        checkExists = False
+        for elem in self.Comments:
+            if specifier == elem["Operand"]: checkExists = True
+
+        if checkExists:
+
+        self.Datatypes.append(Datatype)
+
     def setUsage(self, Usage):
         assert Usage == "Input" or Usage == "Output" or Usage == "InOut" or Usage == "Public"
         self.root.set("Usage", Usage)
