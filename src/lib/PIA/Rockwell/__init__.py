@@ -1,3 +1,3 @@
 __all__ = ["XML", "Types"]
 
-import Types
+from Types import CommonType

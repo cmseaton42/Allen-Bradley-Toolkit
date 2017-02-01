@@ -43,11 +43,10 @@ def TagTest():
     Tag1 = Tag('Hello_World', CommonType.BOOL)
     Tag2 = Tag('SomeOtherTag', CommonType.SINT)
 
-    root.append(Tag1.getLocalRoot())
-    root.append(Tag2.getLocalRoot())
+    Tag1.setParent(root)
+    Tag2.setParent(root)
 
     print etree.tostring(root, pretty_print = True)
-
 
 if __name__ == '__main__':
     MemberTest()
