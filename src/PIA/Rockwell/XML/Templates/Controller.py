@@ -4,7 +4,7 @@ try:
 except ImportError as e:
     print e.message
 
-from lib.PIA.Rockwell.XML.Tools import *
+from PIA.Rockwell.XML.Tools import *
 
 class Controller():
     '''

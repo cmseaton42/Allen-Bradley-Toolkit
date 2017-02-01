@@ -4,41 +4,40 @@ try:
 except ImportError as e:
     print e.message
 
-from lib.PIA.Rockwell.XML.Tools import *
+from PIA.Rockwell.XML.Tools import *
 
-class Tag():
+class Member():
     '''
-    Tag Template:
+    Member Template:
     See L5X Manual for Details,
     These members are to be used when defining a datatype.
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
-    def __init__(self, TagName, DataType, TagType =  "Base", Description = "", Radix = "Decimal", Constant = "false", ArrayLength = 0):
+    def __init__(self, TagName, DataType, Hidden = False, Description = "", Radix = "Decimal", ArrayLength = 0, Target = "", BitNumber = 0):
             #Initialize Member Attributes
             assert isValidTag(TagName)
-            self.root = etree.Element('Tag')
+            if DataType == "BOOL": DataType = "BIT"
+            self.root = etree.Element('Member')
             self.root.set("Name", TagName)
-            self.root.set("TagType", TagType)
             self.root.set("Datatype", str(DataType))
             self.root.set("Dimension",str(ArrayLength))
             self.root.set("Radix", Radix)
-            self.root.set("ExternalAccess", "Read/Wdrite")
+            if DataType == "BIT":
+                #Reference Rockwell Manuals for Bit Overlays for details on the following assertion.
+                if Target == "": raise ValueError("Data of Type BOOL<BIT> Must have a Target: eg. target = 'ZZZZZZZZZZSample0'")
+                self.root.set("Hidden", "false")
+                self.root.set("Target", Target)
+                self.root.set("BitNumber", str(BitNumber))
+            elif Hidden == True:
+                self.root.set("Hidden", "true")
+            else:
+                self.root.set("Hidden", "false")
+            self.root.set("ExternalAccess", "Read/Write")
             if Description != "":
                 self.Desc = etree.SubElement(self.root, 'Description')
                 self.setDescription(Description)
                 self.root.append(self.Desc)
-
-    def setUsage(self, Usage):
-        assert Usage == "Input" or Usage == "Output" or Usage == "InOut" or Usage == "Public"
-        self.root.set("Usage", Usage)
-
-    def setAlias(self, TagName):
-        self.root.set("AliasFor", TagName)
-
-    def setClassAttribute(self, classAttribute):
-        assert classAttribute == "Standard" or classAttribute == "Safety"
-        self.root.set("Class", classAttribute)
 
     def setAttribute(self, **kwargs):
         for key in kwargs:
@@ -56,7 +55,7 @@ class Tag():
         self.Desc.text = etree.CDATA(Description)
 
     def setParent(self, root):
-        assert etree.iselement(root) and root.tag == "Tags"
+        assert etree.iselement(root) and root.tag == "Members"
         root.append(self.getLocalRoot())
 
     def getLocalRoot(self):

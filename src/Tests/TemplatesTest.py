@@ -2,8 +2,8 @@ import sys
 import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-from lib.PIA.Rockwell.Types import CommonType
-from lib.PIA.Rockwell.XML.Templates import *
+from PIA.Rockwell.Types import CommonType
+from PIA.Rockwell.XML.Templates import *
 
 import lxml
 from lxml import etree
