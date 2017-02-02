@@ -35,19 +35,11 @@ class Tag():
             if node.tag == NodeTag: return False
         return True
 
-    def addComment(self, comment, specifier):
-        assert type(comment) == str and type(specifier) == str
+    def addTagComment(self, TagComment):
+        assert etree.iselement(TagComment.getLocalRoot()) and TagComment.getLocalRoot().tag == "Comment"
         if not self.checkIfChild("Comments"):
             self.Comments = etree.SubElement(self.root, "Comments")
-
-        node = etree.SubElement(self.Comments, "Comment")
-        checkExists = False
-        for elem in self.Comments:
-            if specifier == elem["Operand"]: checkExists = True
-
-        if checkExists:
-
-        self.Datatypes.append(Datatype)
+        self.Comments.append(TagComment)
 
     def setUsage(self, Usage):
         assert Usage == "Input" or Usage == "Output" or Usage == "InOut" or Usage == "Public"
@@ -75,9 +67,9 @@ class Tag():
             self.root.append(self.Desc)
         self.Desc.text = etree.CDATA(Description)
 
-    def setParent(self, root):
-        assert etree.iselement(root) and root.tag == "Tags"
-        root.append(self.getLocalRoot())
+    def setParent(self, parent):
+        assert etree.iselement(parent) and parent.tag == "Tags"
+        parent.append(self.getLocalRoot())
 
     def getLocalRoot(self):
         return self.root

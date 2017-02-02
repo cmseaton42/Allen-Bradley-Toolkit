@@ -63,8 +63,8 @@ class Program():
         self.Desc.text = etree.CDATA(Description)
 
     def setParent(self, parent):
-        assert etree.iselement(root) and root.tag == "Programs"
-        root.append(self.root)
+        assert etree.iselement(parent) and parent.tag == "Programs"
+        parent.append(self.root)
 
     def getLocalRoot(self):
         return self.root

@@ -48,8 +48,8 @@ class Rung():
         self.Comment.text = etree.CDATA(Comment)
 
     def setParent(self, parent):
-        assert etree.iselement(root) and root.tag == "RLLContent"
-        root.append(self.root)
+        assert etree.iselement(parent) and parent.tag == "RLLContent"
+        parent.append(self.root)
 
     def getLocalRoot(self):
         return self.root

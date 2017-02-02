@@ -50,8 +50,8 @@ class Datatype():
         self.Desc.text = etree.CDATA(Description)
 
     def setParent(self, parent):
-        assert etree.iselement(root) and root.tag == "DatatTypes"
-        root.append(self.root)
+        assert etree.iselement(parent) and parent.tag == "DatatTypes"
+        parent.append(self.root)
 
     def getLocalRoot(self):
         return self.root

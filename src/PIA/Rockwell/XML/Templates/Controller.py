@@ -70,9 +70,9 @@ class Controller():
             self.root.append(self.Desc)
         self.Desc.text = etree.CDATA(Description)
 
-    def setParent(self, root):
-        assert etree.iselement(root) and root.tag == "Members"
-        root.append(self.getLocalRoot())
+    def setParent(self, parent):
+        assert etree.iselement(parent) and parent.tag == "Members"
+        parent.append(self.getLocalRoot())
 
     def getLocalRoot(self):
         return self.root
