@@ -30,6 +30,9 @@ class Tag(Base_Template):
                 self.setDescription(Description)
                 self.root.append(self.Desc)
 
+    def setAsIO(self):
+        self.root.set("IO","true")
+
     def addTagComment(self, TagComment):
         assert etree.iselement(TagComment.getLocalRoot()) and TagComment.getLocalRoot().tag == "Comment"
         if not self.checkIfChild("Comments"):
