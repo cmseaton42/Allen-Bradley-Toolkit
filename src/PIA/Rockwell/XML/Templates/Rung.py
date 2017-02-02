@@ -5,12 +5,13 @@ except ImportError as e:
     print e.message
 
 from PIA.Rockwell.XML.Tools import *
+from Base_Template import Base_Template
 
-class Rung():
+class Rung(Base_Template):
     '''
     Rung Template:
     See L5X Manual for Details,
-    These members are to be used when defining a datatype.
+    These members are to be used when defining a ladder rung.
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
@@ -32,14 +33,6 @@ class Rung():
         assert type(Content) == str
         self.rungContent.text = etree.CDATA(Content)
 
-    def setAttribute(self, **kwargs):
-        for key in kwargs:
-            if not key in self.root.keys():
-                raise KeyError("Rung has No Attribute: <%s>" % key)
-
-        for key in kwargs:
-            self.root.set(key, kwargs[key])
-
     def setComment(self, Comment):
         assert type(Comment) == str
         if self.Comment == None:
@@ -50,9 +43,3 @@ class Rung():
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "RLLContent"
         parent.append(self.root)
-
-    def getLocalRoot(self):
-        return self.root
-
-    def __str__(self):
-        return etree.tostring(self.root, pretty_print = True)

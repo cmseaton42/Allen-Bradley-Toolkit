@@ -5,12 +5,15 @@ except ImportError as e:
     print e.message
 
 from PIA.Rockwell.XML.Tools import *
+from Base_Template import Base_Template
 
-class TagComment():
+class TagComment(Base_Template):
     '''
     Tag Comment Template:
     See L5X Manual for Details,
-    These members are to be used when defining a datatype.
+    These members are to be used when defining a tag's comment.
+    ----------------------------------------------------------
+    [specifier].[BitNumber]
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''

@@ -5,12 +5,15 @@ except ImportError as e:
     print e.message
 
 from PIA.Rockwell.XML.Tools import *
+from Base_Template import Base_Template
 
-class Project():
+class Project(Base_Template):
     '''
     Project Template:
     See L5X Manual for Details,
-    These members are to be used when defining a datatype.
+    These members are to be used when defining a project.
+    ----------------------------------------------------------
+    This class should always serve as the base class.
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
@@ -21,12 +24,6 @@ class Project():
     def getControllerRoot(self):
         return self.Controller
 
-    def checkIfChild(self, nodeTag):
-        assert type(nodeTag) == str
-        for node in self.root:
-            if node.tag == NodeTag: return False
-        return True
-
     def addController(self, Controller):
         assert etree.iselement(Controller.getLocalRoot()) and Controller.getLocalRoot().tag == "Controller"
         if not self.checkIfChild("Controller"):
@@ -36,9 +33,3 @@ class Project():
     def setAttribute(self, **kwargs):
         for key in kwargs:
             self.root.set(key, kwargs[key])
-
-    def getLocalRoot(self):
-        return self.root
-
-    def __str__(self):
-        return etree.tostring(self.root, pretty_print = True)

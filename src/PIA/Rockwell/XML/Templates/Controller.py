@@ -5,12 +5,13 @@ except ImportError as e:
     print e.message
 
 from PIA.Rockwell.XML.Tools import *
+from Base_Template import Base_Template
 
-class Controller():
+class Controller(Base_Template):
     '''
     Controller Template:
     See L5X Manual for Details,
-    These members are to be used when defining a datatype.
+    These members are to be used when defining a Controller.
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
@@ -22,12 +23,6 @@ class Controller():
                 self.Desc = etree.SubElement(self.root, 'Description')
                 self.setDescription(Description)
                 self.root.append(self.Desc)
-
-    def checkIfChild(self, nodeTag):
-        assert type(nodeTag) == str
-        for node in self.root:
-            if node.tag == NodeTag: return False
-        return True
 
     def addDatatype(self, Datatype):
         assert etree.iselement(Datatype.getLocalRoot()) and Datatype.getLocalRoot().tag == "Datatype"
@@ -59,23 +54,6 @@ class Controller():
             self.Tasks = etree.SubElement(self.root, "Tasks")
         self.Tasks.append(Datatype)
 
-    def setAttribute(self, **kwargs):
-        for key in kwargs:
-            self.root.set(key, kwargs[key])
-
-    def setDescription(self, Description):
-        assert type(Description) == str
-        if self.Desc == None:
-            self.Desc = etree.SubElement(self.root, 'Description')
-            self.root.append(self.Desc)
-        self.Desc.text = etree.CDATA(Description)
-
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "Members"
         parent.append(self.getLocalRoot())
-
-    def getLocalRoot(self):
-        return self.root
-
-    def __str__(self):
-        return etree.tostring(self.root, pretty_print = True)

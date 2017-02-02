@@ -5,12 +5,13 @@ except ImportError as e:
     print e.message
 
 from PIA.Rockwell.XML.Tools import *
+from Base_Template import Base_Template
 
-class Tag():
+class Tag(Base_Template):
     '''
     Tag Template:
     See L5X Manual for Details,
-    These members are to be used when defining a datatype.
+    These members are to be used when defining a Tag.
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
@@ -29,12 +30,6 @@ class Tag():
                 self.setDescription(Description)
                 self.root.append(self.Desc)
 
-    def checkIfChild(self, nodeTag):
-        assert type(nodeTag) == str
-        for node in self.root:
-            if node.tag == NodeTag: return False
-        return True
-
     def addTagComment(self, TagComment):
         assert etree.iselement(TagComment.getLocalRoot()) and TagComment.getLocalRoot().tag == "Comment"
         if not self.checkIfChild("Comments"):
@@ -52,14 +47,6 @@ class Tag():
         assert classAttribute == "Standard" or classAttribute == "Safety"
         self.root.set("Class", classAttribute)
 
-    def setAttribute(self, **kwargs):
-        for key in kwargs:
-            if not key in self.root.keys():
-                raise KeyError("Member has No Attribute: <%s>" % key)
-
-        for key in kwargs:
-            self.root.set(key, kwargs[key])
-
     def setDescription(self, Description):
         assert type(Description) == str
         if self.Desc == None:
@@ -70,9 +57,3 @@ class Tag():
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "Tags"
         parent.append(self.getLocalRoot())
-
-    def getLocalRoot(self):
-        return self.root
-
-    def __str__(self):
-        return etree.tostring(self.root, pretty_print = True)
