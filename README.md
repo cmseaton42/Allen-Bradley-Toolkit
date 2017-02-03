@@ -1,33 +1,19 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
 ### What is this repository for? ###
 
-* Summary: Tools to help get rolling faster with Projects.
-* v0.000
-
-
+* The goal of this project is to generate a python package that wraps the standard lxml python package for use easy L5X file manipulation.
+* v0.001
 
 ### How do I get set up? ###
 
-[TO BE FILLED IN LATER]
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-[TO BE FILLED IN LATER]
-* Writing tests
-* Code review
-* Other guidelines
+* Install <strong>Python 2.7</strong> from https://www.python.org/Downloads
+* Add `C:\python27\` and `C:\Python27\Scripts` to your system path
+* Open a <strong>command prompt window</strong> as <strong>Aministrator</strong>
+* Execute 'pip install lxml==3.6.0'
+* You're Done
 
 ### Who do I talk to? ###
 
-[CANAAN SEATON]
-* Repo owner or admin
-* Other community or team contact
+* Canaan Seaton - Porject Owner
+* Josh Duzan    - Contributor
