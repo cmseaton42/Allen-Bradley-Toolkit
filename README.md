@@ -1,5 +1,9 @@
 # README #
 
+> Debugging is twice as hard as writing the code in the first place. Therefore, if write the code as cleverly as possible, you are, by definition, not smart enough to debug it
+>
+> <i>Brian W. Kernighan</i>
+
 ### What is this repository for? ###
 
 * The goal of this project is to generate a python package that wraps the standard lxml python package for use easy L5X file manipulation.
