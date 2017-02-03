@@ -2,7 +2,7 @@
 
 > Debugging is twice as hard as writing the code in the first place. Therefore, if write the code as cleverly as possible, you are, by definition, not smart enough to debug it
 >
-> <i>Brian W. Kernighan</i>
+> *Brian W. Kernighan*
 
 ### What is this repository for? ###
 
@@ -11,11 +11,11 @@
 
 ### How do I get set up? ###
 
-* Install <strong>Python 2.7</strong> from https://www.python.org/Downloads
-* Add `C:\python27\` and `C:\Python27\Scripts` to your system path
-* Open a <strong>command prompt window</strong> as <strong>Aministrator</strong>
-* Execute 'pip install lxml==3.6.0'
-* You're Done
+1. Install **Python 2.7** from https://www.python.org/Downloads
+2. Add `C:\python27\` and `C:\Python27\Scripts` to your system path
+3. Open a **command prompt** window as **Aministrator**
+4. Execute 'pip install lxml==3.6.0'
+5. You're Done
 
 ### Who do I talk to? ###
 
