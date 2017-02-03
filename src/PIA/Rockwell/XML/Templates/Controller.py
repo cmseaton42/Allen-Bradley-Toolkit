@@ -34,7 +34,7 @@ class Controller(Base_Template):
         assert etree.iselement(Module.getLocalRoot()) and Module.getLocalRoot().tag == "Module"
         if not self.checkIfChild("Modules"):
             self.Modules = etree.SubElement(self.root, "Modules")
-        self.Modules.append(Datatype)
+        self.Modules.append(Module)
 
     def addAddOnInstructionDefinition(self, AddOnInstructionDefinition):
         assert etree.iselement(AddOnInstructionDefinition.getLocalRoot()) and AddOnInstructionDefinition.getLocalRoot().tag == "AddOnInstructionDefinition"
