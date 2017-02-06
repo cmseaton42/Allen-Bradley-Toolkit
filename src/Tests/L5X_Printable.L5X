@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<RSLogix5000Content TargetType="Routine" TargetClass="Standard" TargetName="PB" TargetSubType="RLL" ContainsContext="true">
+  <Controller use="Context">
+    <Datatypes use="Context">
+      <Datatype Name="PB_OneButton" Family="NoFamily" Class="User">
+        <Members>
+          <Member Name="XXXXXXXXXXHost" Datatype="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write"/>
+          <Member Name="Push" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="0" ExternalAccess="Read/Write"/>
+          <Member Name="State" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="1" ExternalAccess="Read/Write"/>
+          <Member Name="Visibility" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="2" ExternalAccess="Read/Write"/>
+          <Member Name="Ind" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="3" ExternalAccess="Read/Write"/>
+          <Member Name="Interlock" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="4" ExternalAccess="Read/Write"/>
+          <Member Name="ONS" Datatype="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="XXXXXXXXXXHost" BitNumber="5" ExternalAccess="Read/Write"/>
+          <Member Name="Tmr" Datatype="TIMER" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+        </Members>
+      </Datatype>
+      <Datatype Name="PB_TwoButton" Family="NoFamily" Class="User">
+        <Members>
+          <Member Name="ButtonA" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+          <Member Name="ButtonB" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write"/>
+        </Members>
+      </Datatype>
+    </Datatypes>
+    <Tags use="Context">
+      <Tag Name="PB_SomeButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+        <Description><![CDATA[ Does Something]]></Description>
+      </Tag>
+      <Tag Name="PB_ballinButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+        <Description><![CDATA[ Campell Gets Taller Buttons]]></Description>
+      </Tag>
+    </Tags>
+    <Programs>
+      <Program Name="PB_Routine_Program" Type="Normal" use="Context">
+        <Tags use="Context">
+          <Tag Name="PB_AnotherButton" TagType="Base" Datatype="PB_TwoButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+            <Description><![CDATA[ Dumb Tag]]></Description>
+          </Tag>
+        </Tags>
+        <Routines use="Context">
+          <Routine Name="PB" Type="RLL" use="Target">
+            <RLLContent>
+              <Rung Number="0" Type="N">
+                <Comment><![CDATA[ Does Something -- Push Button]]></Comment>
+                <Text><![CDATA[AFI()OTE(PB_SomeButton.Visibility);]]></Text>
+              </Rung>
+              <Rung Number="1" Type="N">
+                <Text><![CDATA[XIC(PB_SomeButton.Push)OTE(PB_SomeButton.State);]]></Text>
+              </Rung>
+              <Rung Number="2" Type="N">
+                <Text><![CDATA[XIC(PB_SomeButton.State)OTE(PB_SomeButton.Ind);]]></Text>
+              </Rung>
+              <Rung Number="3" Type="N">
+                <Comment><![CDATA[ Dumb Tag -- Push Button A]]></Comment>
+                <Text><![CDATA[AFI()OTE(PB_AnotherButton.ButtonA.Visibility);]]></Text>
+              </Rung>
+              <Rung Number="4" Type="N">
+                <Text><![CDATA[XIC(PB_AnotherButton.ButtonA.Push)OTE(PB_AnotherButton.ButtonA.State);]]></Text>
+              </Rung>
+              <Rung Number="5" Type="N">
+                <Text><![CDATA[XIC(PB_AnotherButton.ButtonA.State)OTE(PB_AnotherButton.ButtonA.Ind);]]></Text>
+              </Rung>
+              <Rung Number="6" Type="N">
+                <Comment><![CDATA[ Dumb Tag -- Push Button B]]></Comment>
+                <Text><![CDATA[AFI()OTE(PB_AnotherButton.ButtonB.Visibility);]]></Text>
+              </Rung>
+              <Rung Number="7" Type="N">
+                <Text><![CDATA[XIC(PB_AnotherButton.ButtonB.Push)OTE(PB_AnotherButton.ButtonB.State);]]></Text>
+              </Rung>
+              <Rung Number="8" Type="N">
+                <Text><![CDATA[XIC(PB_AnotherButton.ButtonB.State)OTE(PB_AnotherButton.ButtonB.Ind);]]></Text>
+              </Rung>
+              <Rung Number="9" Type="N">
+                <Comment><![CDATA[ Campell Gets Taller Buttons -- Push Button]]></Comment>
+                <Text><![CDATA[AFI()OTE(PB_ballinButton.Visibility);]]></Text>
+              </Rung>
+              <Rung Number="10" Type="N">
+                <Text><![CDATA[XIC(PB_ballinButton.Push)OTE(PB_ballinButton.State);]]></Text>
+              </Rung>
+              <Rung Number="11" Type="N">
+                <Text><![CDATA[XIC(PB_ballinButton.State)OTE(PB_ballinButton.Ind);]]></Text>
+              </Rung>
+            </RLLContent>
+          </Routine>
+        </Routines>
+      </Program>
+    </Programs>
+  </Controller>
+</RSLogix5000Content>

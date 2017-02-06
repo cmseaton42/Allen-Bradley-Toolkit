@@ -6,7 +6,6 @@ except ImportError as e:
 
 from PIA.Rockwell.Types import CommonType
 from PIA.Rockwell.XML.Templates import *
-from Base_Template import Base_Template
 
 class Alarm(Datatype):
     def __init__(self):

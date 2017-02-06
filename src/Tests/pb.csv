@@ -1,4 +1,4 @@
-Name, ArraySize, Type, Scope, Description
-SomeButton, 0, 1, 0, Does Something
-AnotherButton,0, 2, 1, Dumb Tag
-ballinButton, 4, 1, 0, Campell Gets Taller Buttons
+Name, Type, Scope, Description
+SomeButton, 1, 0, Does Something
+AnotherButton, 2, 1, Dumb Tag
+ballinButton, 1, 0, Campell Gets Taller Buttons

@@ -37,7 +37,7 @@ class Tag(Base_Template):
         assert etree.iselement(TagComment.getLocalRoot()) and TagComment.getLocalRoot().tag == "Comment"
         if not self.checkIfChild("Comments"):
             self.Comments = etree.SubElement(self.root, "Comments")
-        self.Comments.append(TagComment)
+        self.Comments.append(TagComment.getLocalRoot())
 
     def setUsage(self, Usage):
         assert Usage == "Input" or Usage == "Output" or Usage == "InOut" or Usage == "Public"

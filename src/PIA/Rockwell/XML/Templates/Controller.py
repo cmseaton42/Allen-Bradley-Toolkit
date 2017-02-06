@@ -17,7 +17,7 @@ class Controller(Base_Template):
     '''
     def __init__(self, Name, Use = "Context", Description = ""):
             #Initialize Member Attributes
-            assert isValidTag(TagName)
+            assert isValidTag(Name)
             self.root = etree.Element('Controller')
             if Description != "":
                 self.Desc = etree.SubElement(self.root, 'Description')
@@ -28,31 +28,37 @@ class Controller(Base_Template):
         assert etree.iselement(Datatype.getLocalRoot()) and Datatype.getLocalRoot().tag == "Datatype"
         if not self.checkIfChild("Datatypes"):
             self.Datatypes = etree.SubElement(self.root, "Datatypes")
-        self.Datatypes.append(Datatype)
+        self.Datatypes.append(Datatype.getLocalRoot())
 
     def addModule(self, Module):
         assert etree.iselement(Module.getLocalRoot()) and Module.getLocalRoot().tag == "Module"
         if not self.checkIfChild("Modules"):
             self.Modules = etree.SubElement(self.root, "Modules")
-        self.Modules.append(Datatype)
+        self.Modules.append(Module.getLocalRoot())
 
     def addAddOnInstructionDefinition(self, AddOnInstructionDefinition):
         assert etree.iselement(AddOnInstructionDefinition.getLocalRoot()) and AddOnInstructionDefinition.getLocalRoot().tag == "AddOnInstructionDefinition"
         if not self.checkIfChild("AddOnInstructionDefinitions"):
             self.AddOnInstructionDefinitions = etree.SubElement(self.root, "AddOnInstructionDefinitions")
-        self.AddOnInstructionDefinitions.append(Datatype)
+        self.AddOnInstructionDefinitions.append(AddOnInstructionDefinition.getLocalRoot())
+
+    def addTag(self, Tag):
+        assert etree.iselement(Tag.getLocalRoot()) and Tag.getLocalRoot().tag == "Tag"
+        if not self.checkIfChild("Tags"):
+            self.Tags = etree.SubElement(self.root, "Tags")
+        self.Tags.append(Tag.getLocalRoot())
 
     def addProgram(self, Program):
         assert etree.iselement(Program.getLocalRoot()) and Program.getLocalRoot().tag == "Program"
         if not self.checkIfChild("Programs"):
             self.Programs = etree.SubElement(self.root, "Programs")
-        self.Programs.append(Datatype)
+        self.Programs.append(Program.getLocalRoot())
 
     def addTask(self, Task):
         assert etree.iselement(Task.getLocalRoot()) and Task.getLocalRoot().tag == "Task"
         if not self.checkIfChild("Tasks"):
             self.Tasks = etree.SubElement(self.root, "Tasks")
-        self.Tasks.append(Datatype)
+        self.Tasks.append(Task.getLocalRoot())
 
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "Members"

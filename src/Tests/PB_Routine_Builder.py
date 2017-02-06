@@ -1,17 +1,22 @@
+#region - Imports
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 from PIA.Rockwell.Types import CommonType
 from PIA.Rockwell.XML.Tools import *
 from PIA.Rockwell.XML.Templates import *
-from PIA.Rockwell.Util.Templates import PushButton
+from PIA.Rockwell.Util.Templates.Datatypes.PushButton import *
 
 import lxml
 from lxml import etree
+#endregion
 
+#region - Global Variables
 ARGS            = sys.argv
 CONTROLLER_TAGS = []
 PROGRAM_TAGS    = []
+RUNGS           = []
+#endregion
 
 #region - Parse/Check Input Arguments
 if len(ARGS) == 1:
@@ -21,8 +26,8 @@ if len(ARGS) == 1:
     sys.exit()
 elif len(ARGS) == 2:
     fname = ARGS[1] #Initialize FileName Variable
-    if os.path.isfile(fname): #Check if file Exists
-        print "Path Argument Does not Exist!"
+    if not os.path.isfile(fname): #Check if file Exists
+        print "Path Argument %s Does not Exist!" % (fname)
         print "    Program Exitting..."
         print
         sys.exit()
@@ -42,12 +47,12 @@ else:
 
 #region - Read in/Parse CSV File
 CSV_File = open(fname, 'r', 0)
-lineNum  = 0
+LINE_NUM, RUNG_NUM  = 0, 0
 for line in CSV_File:
-    lineNum += 1
-    if lineNum == 1: continue
+    LINE_NUM += 1
+    if LINE_NUM == 1: continue
 
-    tagName, size, typeOption, scope, description = line.strip().split(',')
+    tagName, typeOption, scope, description = line.strip().split(',')
 
     if not "PB_" in tagName:
         tagName = "PB_" + tagName
@@ -58,16 +63,36 @@ for line in CSV_File:
         print
         sys.exit()
 
-    size = int(size)
-    if  size < 0: size = 0
+    size = 0
 
-    typeOption == int(typeOption)
+    typeOption = int(typeOption)
     if typeOption == 1:
         typeOption = "PB_OneButton"
+        RUNGS.append(Rung(RUNG_NUM,     Comment = description + " -- Push Button",
+                     Content = "AFI()OTE(" + tagName + ".Visibility);"))
+        RUNGS.append(Rung(RUNG_NUM + 1,
+                     Content = "XIC(" + tagName + ".Push)OTE(" + tagName + ".State);"))
+        RUNGS.append(Rung(RUNG_NUM + 2,
+                     Content = "XIC(" + tagName + ".State)OTE(" + tagName + ".Ind);"))
+        RUNG_NUM += 3
     elif typeOption == 2:
         typeOption = "PB_TwoButton"
+        RUNGS.append(Rung(RUNG_NUM,     Comment = description + " -- Push Button A",
+                     Content = "AFI()OTE(" + tagName + ".ButtonA.Visibility);"))
+        RUNGS.append(Rung(RUNG_NUM + 1,
+                     Content = "XIC(" + tagName + ".ButtonA.Push)OTE(" + tagName + ".ButtonA.State);"))
+        RUNGS.append(Rung(RUNG_NUM + 2,
+                     Content = "XIC(" + tagName + ".ButtonA.State)OTE(" + tagName + ".ButtonA.Ind);"))
+        RUNGS.append(Rung(RUNG_NUM + 3,     Comment = description + " -- Push Button B",
+                     Content = "AFI()OTE(" + tagName + ".ButtonB.Visibility);"))
+        RUNGS.append(Rung(RUNG_NUM + 4,
+                     Content = "XIC(" + tagName + ".ButtonB.Push)OTE(" + tagName + ".ButtonB.State);"))
+        RUNGS.append(Rung(RUNG_NUM + 5,
+                     Content = "XIC(" + tagName + ".ButtonB.State)OTE(" + tagName + ".ButtonB.Ind);"))
+        RUNG_NUM += 6
     else:
-        print "Invalid Push Button Type Contained in CSV File"
+        print "Invalid Push Button Type Contained in CSV File."
+        print " -> Expected 1 or 2, Got %s" % str(typeOption)
         print "     Program Exitting..."
         print
         sys.exit()
@@ -77,28 +102,60 @@ for line in CSV_File:
         CONTROLLER_TAGS.append(Tag(tagName, typeOption, Description = description, ArrayLength = size))
     if scope == 1:
         PROGRAM_TAGS.append(Tag(tagName, typeOption, Description = description, ArrayLength = size))
-
-
 #endregion
 
-#region - Generate Base XML Schema
-PROJ_ATTRIBUTES = {
+#region - Generate L5X Schema
+print "---------INITIALIZING L5X SCHEMA---------"
+print "Building Project Root..."
+PROJECT = Project()
+PROJECT.setAttribute({
     "TargetName": "PB",
     "TargetType": "Routine",
     "TargetSubType": "RLL",
     "TargetClass": "Standard",
     "ContainsContext": "true"
-}
-
-print "Building Project Root..."
-PROJECT = Project()
-PROJECT.setAttribute(PROJ_ATTRIBUTES)
+})
 
 print "Building Controller Root..."
-CONTROLLER = Controller("PB_Routine")
+CONTROLLER = Controller("PB_Routine_Controller")
 setAsContext(CONTROLLER)
+PROJECT.setController(CONTROLLER)
 
+print "Building Relevant Push Button Datatypes..."
+CONTROLLER.addDatatype(PB_OneButton())
+CONTROLLER.addDatatype(PB_TwoButton())
+setAsContext(CONTROLLER.Datatypes)
 
+if not CONTROLLER_TAGS == None:
+    print "Building Controller Scope Tags..."
+    for tag in CONTROLLER_TAGS:
+        CONTROLLER.addTag(tag)
+    setAsContext(CONTROLLER.Tags)
 
+print "Building Program Root..."
+PROGRAM = Program("PB_Routine_Program")
+setAsContext(PROGRAM)
+CONTROLLER.addProgram(PROGRAM)
 
+if not PROGRAM_TAGS == None:
+    print "Building Program Scope Tags..."
+    for tag in PROGRAM_TAGS:
+        PROGRAM.addTag(tag)
+    setAsContext(PROGRAM.Tags)
+
+print "Building Routine Root..."
+ROUTINE = Routine("PB")
+setAsTarget(ROUTINE)
+PROGRAM.addRoutine(ROUTINE)
+setAsContext(PROGRAM.Routines)
+
+print "Building Rungs..."
+for rung in RUNGS:
+    ROUTINE.addRung(rung)
+print "---------DONE BUILDING L5X SCHEMA---------"
+print
+#endregion
+
+#region - Package/Export as L5X File
+PROJECT.writeToFile()
 #endregion

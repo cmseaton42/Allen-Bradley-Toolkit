@@ -34,13 +34,13 @@ class Program(Base_Template):
         assert etree.iselement(Routine.getLocalRoot()) and Routine.getLocalRoot().tag == "Routine"
         if not self.checkIfChild("Routines"):
             self.Routines = etree.SubElement(self.root, "Routines")
-        self.Routines.append(Routine)
+        self.Routines.append(Routine.getLocalRoot())
 
     def addTag(self, Tag):
         assert etree.iselement(Tag.getLocalRoot()) and Tag.getLocalRoot().tag == "Tag"
         if not self.checkIfChild("Tags"):
             self.Tags = etree.SubElement(self.root, "Tags")
-        self.Tags.append(Tag)
+        self.Tags.append(Tag.getLocalRoot())
 
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "Programs"

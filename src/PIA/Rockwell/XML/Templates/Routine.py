@@ -30,7 +30,7 @@ class Routine(Base_Template):
         assert etree.iselement(Rung.getLocalRoot()) and Rung.getLocalRoot().tag == "Rung"
         if not self.checkIfChild("RLLContent"):
             self.RLLContent = etree.SubElement(self.root, "RLLContent")
-        self.RLLContent.append(Rung)
+        self.RLLContent.append(Rung.getLocalRoot())
 
     def setParent(self, parent):
         assert etree.iselement(parent) and parent.tag == "Routines"
