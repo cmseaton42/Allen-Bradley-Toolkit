@@ -5,10 +5,16 @@ except ImportError as e:
     print e.message
 
 def setAsTarget(template):
-    template.root.set("use", "Target")
+    try:
+        template.root.set("use", "Target")
+    except:
+        template.set("use", "Target")
 
 def setAsContext(template):
-    template.root.set("use", "Context")
+    try:
+        template.root.set("use", "Context")
+    except:
+        template.set("use", "Context")
 
 def isValidTag(TagName):
     strCopy = TagName

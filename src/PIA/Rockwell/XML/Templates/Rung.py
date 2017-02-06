@@ -17,7 +17,6 @@ class Rung(Base_Template):
     '''
     def __init__(self, Number, Comment = "", Content = "NOP();"):
             #Initialize Member Attributes
-            assert isValidTag(TypeName)
             self.root = etree.Element("Rung")
             self.root.set("Number", str(Number))
             self.root.set("Type", "N")

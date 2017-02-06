@@ -20,16 +20,16 @@ class Project(Base_Template):
     def __init__(self, SchemaRevision = "1.0", SoftwareRevision = "30.00"):
             #Initialize Member Attributes
             self.root = etree.Element("RSLogix5000Content")
+            self.root.set("SchemaRevision", SchemaRevision)
+            self.root.set("SoftwareRevision", SoftwareRevision)
 
     def getControllerRoot(self):
         return self.Controller
 
-    def addController(self, Controller):
+    def setController(self, Controller):
         assert etree.iselement(Controller.getLocalRoot()) and Controller.getLocalRoot().tag == "Controller"
-        if not self.checkIfChild("Controller"):
-            self.Controller = etree.SubElement(self.root, "Controller")
-        self.Controller.append(Datatype)
+        self.root.append(Controller.getLocalRoot())
 
-    def setAttribute(self, **kwargs):
+    def setAttribute(self, kwargs):
         for key in kwargs:
             self.root.set(key, kwargs[key])
