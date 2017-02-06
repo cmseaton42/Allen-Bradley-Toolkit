@@ -15,7 +15,7 @@ class Tag(Base_Template):
     ----------------------------------------------------------
     For Information on this see the provided L5X Manual from Rockwell
     '''
-    def __init__(self, TagName, DataType, TagType =  "Base", Description = "", Radix = "Decimal", Constant = "false", ArrayLength = 0):
+    def __init__(self, TagName, DataType, TagType =  "Base", Description = "", UseRadix = True, Radix = "Decimal", Constant = "false", ArrayLength = 0):
             #Initialize Member Attributes
             assert isValidTag(TagName)
             self.root = etree.Element('Tag')
@@ -23,8 +23,8 @@ class Tag(Base_Template):
             self.root.set("TagType", TagType)
             self.root.set("Datatype", str(DataType))
             self.root.set("Dimension",str(ArrayLength))
-            self.root.set("Radix", Radix)
-            self.root.set("ExternalAccess", "Read/Wdrite")
+            if UseRadix: self.root.set("Radix", Radix)
+            self.root.set("ExternalAccess", "Read/Write")
             if Description != "":
                 self.Desc = etree.SubElement(self.root, 'Description')
                 self.setDescription(Description)

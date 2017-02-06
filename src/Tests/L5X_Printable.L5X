@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<RSLogix5000Content TargetType="Routine" TargetClass="Standard" TargetName="PB" TargetSubType="RLL" ContainsContext="true">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="30.00" TargetType="Routine" TargetClass="Standard" TargetName="PB" TargetSubType="RLL" ContainsContext="true">
   <Controller use="Context">
     <Datatypes use="Context">
       <Datatype Name="PB_OneButton" Family="NoFamily" Class="User">
@@ -22,17 +22,17 @@
       </Datatype>
     </Datatypes>
     <Tags use="Context">
-      <Tag Name="PB_SomeButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+      <Tag Name="PB_SomeButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" ExternalAccess="Read/Wdrite">
         <Description><![CDATA[ Does Something]]></Description>
       </Tag>
-      <Tag Name="PB_ballinButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+      <Tag Name="PB_ballinButton" TagType="Base" Datatype="PB_OneButton" Dimension="0" ExternalAccess="Read/Wdrite">
         <Description><![CDATA[ Campell Gets Taller Buttons]]></Description>
       </Tag>
     </Tags>
     <Programs>
       <Program Name="PB_Routine_Program" Type="Normal" use="Context">
         <Tags use="Context">
-          <Tag Name="PB_AnotherButton" TagType="Base" Datatype="PB_TwoButton" Dimension="0" Radix="Decimal" ExternalAccess="Read/Wdrite">
+          <Tag Name="PB_AnotherButton" TagType="Base" Datatype="PB_TwoButton" Dimension="0" ExternalAccess="Read/Wdrite">
             <Description><![CDATA[ Dumb Tag]]></Description>
           </Tag>
         </Tags>

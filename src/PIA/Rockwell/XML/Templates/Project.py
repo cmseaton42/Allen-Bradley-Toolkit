@@ -20,6 +20,8 @@ class Project(Base_Template):
     def __init__(self, SchemaRevision = "1.0", SoftwareRevision = "30.00"):
             #Initialize Member Attributes
             self.root = etree.Element("RSLogix5000Content")
+            self.root.set("SchemaRevision", SchemaRevision)
+            self.root.set("SoftwareRevision", SoftwareRevision)
 
     def getControllerRoot(self):
         return self.Controller

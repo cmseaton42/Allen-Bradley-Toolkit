@@ -99,9 +99,9 @@ for line in CSV_File:
 
     scope = int(scope)
     if scope == 0:
-        CONTROLLER_TAGS.append(Tag(tagName, typeOption, Description = description, ArrayLength = size))
+        CONTROLLER_TAGS.append(Tag(tagName, typeOption, UseRadix = False, Description = description, ArrayLength = size))
     if scope == 1:
-        PROGRAM_TAGS.append(Tag(tagName, typeOption, Description = description, ArrayLength = size))
+        PROGRAM_TAGS.append(Tag(tagName, typeOption, UseRadix = False, Description = description, ArrayLength = size))
 #endregion
 
 #region - Generate L5X Schema
