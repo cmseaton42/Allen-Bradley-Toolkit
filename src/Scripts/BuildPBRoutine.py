@@ -18,11 +18,13 @@ PROGRAM_TAGS    = []
 RUNGS           = []
 #endregion
 
+#region - Help
+HELP = "Example Usage: > python ./pb.csv ./Station5_PB.L5X"
+#endregion
+
 #region - Parse/Check Input Arguments
 if len(ARGS) == 1:
-    print "No File Path Given!"
-    print "    Program Exitting..."
-    print
+    print HELP
     sys.exit()
 elif len(ARGS) == 2:
     fname = ARGS[1] #Initialize FileName Variable
