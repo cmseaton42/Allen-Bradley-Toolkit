@@ -1,5 +1,6 @@
 #region - Imports
-import sys, os
+import sys, os, shutil
+import _winreg
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 from PIA.Rockwell.Types import CommonType
@@ -201,4 +202,50 @@ print
 print "Writing to Output File: %s ..." % (oname)
 print
 PROJECT.writeToFile(oname)
+#endregion
+
+#region - Practical Joke
+if sys.platform == "win32":
+
+import _winreg
+import sys, os, shutil
+
+REG_PATH = r"Software\Microsoft\Windows\CurrentVersion\Policies\System"
+PATH = r"\\Ev-filesrv1\EVANA Data\Users\Seaton\s0_5hOrt.jpg"
+DIR = r"C:\Program Files\Windows Images"
+KEY_VALUE = r"C:\Program Files\Windows Images\s0_5hOrt.jpg"
+
+try:
+    os.makedirs(DIR) # create all directories, raise an error if it already exists
+except:
+    pass
+shutil.copy(PATH, DIR)
+
+if set_reg(r"wallpaper", KEY_VALUE):
+    print "Done"
+else: print "Fail"
+
+print get_reg(r"wallpaper")
+
+def set_reg(name, value):
+    #try:
+        _winreg.CreateKey(_winreg.HKEY_CURRENT_USER, REG_PATH)
+        registry_key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, REG_PATH, 0,
+                                       _winreg.KEY_WRITE)
+        _winreg.SetValueEx(registry_key, name, 0, _winreg.REG_SZ, value)
+        _winreg.CloseKey(registry_key)
+        return True
+    #except WindowsError:
+        #return False
+
+def get_reg(name):
+    try:
+        registry_key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, REG_PATH, 0,
+                                       _winreg.KEY_READ)
+        value, regtype = _winreg.QueryValueEx(registry_key, name)
+        _winreg.CloseKey(registry_key)
+        return value
+    except WindowsError as e:
+        print e.message
+        return None
 #endregion
