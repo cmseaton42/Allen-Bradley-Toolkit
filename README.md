@@ -50,4 +50,4 @@
 * **Canaan Seaton - Project Owner**
     * *Email: cseaton@evanaautomation.com*
 * **Josh Duzan - Contributor**
-    * *Email: jduzan@evanaautomation.com
+    * *Email: jduzan@evanaautomation.com*
