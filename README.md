@@ -36,15 +36,13 @@
 
     
     
-     ```
+```
      cd C:\Program Files\AB Tools\
      git fetch
      git reset --hard origin/master
-     ```
+```
 
 
-    
-     4. You're Done
 
 
 ### * **Who do I talk to?** * ###
