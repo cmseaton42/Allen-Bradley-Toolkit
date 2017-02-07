@@ -23,7 +23,7 @@
 
 * **Download and Install Package**
 
-    1. Download the Latest **Release** from the [Downloads](https://bitbucket.org/cmseaton42/allen-bradley-python-tools/downloads) Page
+    1. Download the Latest **Source** from from the [Downloads](https://bitbucket.org/cmseaton42/allen-bradley-python-tools/downloads) Page
     2. Create Directory `C:\Program Files\AB Tools\`
     3. Extract **Source** files to `C:\Program Files\AB Tools\`
     4. Add `C:\Program Files\AB Tools\src\Scripts\` to **System Path**
