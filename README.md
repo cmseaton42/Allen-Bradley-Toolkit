@@ -17,6 +17,7 @@
     2. Add `C:\python27\` and `C:\Python27\Scripts\` to your **System Path**
     3. Open a **Command Prompt** window as **Aministrator**
     4. Execute `pip install lxml==3.6.0`
+    5. Execute `pip install enum`
     5. You're Done
 
 
