@@ -37,9 +37,7 @@
     
     
 ```
-#!bash
-
- cd C:\Program Files\AB Tools\
+     cd C:\Program Files\AB Tools\
      git fetch
      git reset --hard origin/master
 ```
