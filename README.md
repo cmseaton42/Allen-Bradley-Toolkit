@@ -27,6 +27,7 @@
     2. Create Directory `C:\Program Files\AB Tools\`
     3. Extract **Source** files to `C:\Program Files\AB Tools\`
     4. Add `C:\Program Files\AB Tools\src\Scripts\` to **System Path**
+    5. Open **Command Prompt** and Run `set PYTHONPATH=%PYTHONPATH%;C:\Program Files\AB Tools\src\scripts`
     5. All Scripts will now be Available from **Windows Command Prompt**
 
 
