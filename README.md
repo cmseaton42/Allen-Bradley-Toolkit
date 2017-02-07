@@ -33,11 +33,19 @@
     1. Install **Git** from https://git-scm.com/Downloads
     2. Open a Windows **Git BASH** Terminal
     3. Run Following Command Sequence
-    ~~~
-     cd C:\Program Files\AB Tools\
+
+    
+    
+```
+#!bash
+
+ cd C:\Program Files\AB Tools\
      git fetch
      git reset --hard origin/master
-    ~~~
+```
+
+
+    
     4. You're Done
 
 
