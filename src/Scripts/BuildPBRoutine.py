@@ -19,7 +19,25 @@ RUNGS           = []
 #endregion
 
 #region - Help
-HELP = "Example Usage: > python ./pb.csv ./Station5_PB.L5X"
+HELP = '''
+Usage Pattern:
+> python BuildPBRoutine.py [path/to/input/file.csv] [path/to/output/file.L5X]
+
+Usage Notes:
+- If no output file is given, then the output will be written to the current
+    current directory with filename 'PB.L5X'
+- Input filetype MUST be of type '*.csv'
+- Output filetype MUST be of type '*.L5X'
+- All Arguments are Case Sensitive
+
+Example 1:
+$Reads Data from '.pb.csv' and writes to 'root/Desktop/Station5_PB.L5X'
+> python BuildPBRoutine.py ./pb.csv /root/Desktop/Station5_PB.L5X
+
+Example 2:
+$Reads Data from '.pb.csv' and writes to './PB.L5X'
+> python BuildPBRoutine.py ./pb.csv
+'''
 #endregion
 
 #region - Parse/Check Input Arguments
@@ -28,6 +46,7 @@ if len(ARGS) == 1:
     sys.exit()
 elif len(ARGS) == 2:
     fname = ARGS[1] #Initialize FileName Variable
+    oname = os.getcwd() + "/PB.L5X"
     if not os.path.isfile(fname): #Check if file Exists
         print "Path Argument %s Does not Exist!" % (fname)
         print "    Program Exitting..."
@@ -35,6 +54,26 @@ elif len(ARGS) == 2:
         sys.exit()
     elif not fname.lower().endswith('.csv'):
         print "Received file is not of type *.csv"
+        print "    Program Exitting..."
+        print
+        sys.exit()
+    print "File Loading in Progress..."
+    print
+elif len(ARGS) == 3:
+    fname = ARGS[1] #Initialize FileName Variable
+    oname = ARGS[2]
+    if not os.path.isfile(fname): #Check if file Exists
+        print "Path Argument %s Does not Exist!" % (fname)
+        print "    Program Exitting..."
+        print
+        sys.exit()
+    elif not fname.lower().endswith('.csv'):
+        print "Received file is not of type *.csv"
+        print "    Program Exitting..."
+        print
+        sys.exit()
+    elif not oname.endswith('.L5X'):
+        print "Received file is not of type *.L5X"
         print "    Program Exitting..."
         print
         sys.exit()
@@ -159,5 +198,7 @@ print
 #endregion
 
 #region - Package/Export as L5X File
-PROJECT.writeToFile()
+print "Writing to Output File: %s ..." % (oname)
+print
+PROJECT.writeToFile(oname)
 #endregion
