@@ -47,7 +47,7 @@
 
 
 
-### * **Who do I talk to?** * ###
+### **Who do I talk to?** ###
 
 * **Canaan Seaton - Project Owner**
     * *Email: cseaton@evanaautomation.com*
