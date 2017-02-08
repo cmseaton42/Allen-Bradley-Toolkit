@@ -16,35 +16,24 @@
     1. Install **Python 2.7** from https://www.python.org/Downloads
     2. Add `C:\python27\` and `C:\Python27\Scripts\` to your **System Path**
     3. Open a **Command Prompt** window as **Aministrator**
-    4. Execute `pip install lxml==3.6.0`
-    5. Execute `pip install enum`
-    6. You're Done
+    4. Run `set PATHEXT=%PATHEXT%;.PY`
+    5. You're Done
 
 
 
 * **Download and Install Package**
 
-    1. Download the Latest **Source** from from the [Downloads](https://bitbucket.org/cmseaton42/allen-bradley-python-tools/downloads) Page
-    2. Create Directory `C:\Program Files\AB Tools\`
-    3. Extract **Source** files to `C:\Program Files\AB Tools\`
-    4. Add `C:\Program Files\AB Tools\src\Scripts\` to **System Path**
-    5. Open **Command Prompt** and Run `set PYTHONPATH=%PYTHONPATH%;C:\Program Files\AB Tools\src\scripts`
-    6. All Scripts will now be Available from **Windows Command Prompt**
+    1. Open a **Command Prompt** window as **Aministrator**
+    2. Run `pip install Preh`
+    3. All Scripts will now be Available from **Windows Command Prompt**
+    4. You're Done
 
 
 
 * **Update Package/ Version Control**
-    1. Install **Git** from https://git-scm.com/Downloads
-    2. Open a Windows **Git BASH** Terminal
-    3. Run Following Command Sequence
-
-
-
-```
-     cd C:\Program Files\AB Tools\
-     git fetch
-     git reset --hard origin/master
-```
+    1. Open Windows **Command Prompt** as *Administrator*
+    2. Run `pip install Preh -U`
+    3. You're Done
 
 
 

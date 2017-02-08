@@ -40,7 +40,7 @@ $Reads Data from '.pb.csv' and writes to './PB.L5X'
 
 #region - Parse/Check Input Arguments
 if len(ARGS) == 1:
-    print(HELP)
+    print HELP
     sys.exit()
 elif len(ARGS) == 2:
     fname = ARGS[1] #Initialize FileName Variable
