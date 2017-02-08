@@ -18,7 +18,7 @@
     3. Open a **Command Prompt** window as **Aministrator**
     4. Execute `pip install lxml==3.6.0`
     5. Execute `pip install enum`
-    5. You're Done
+    6. You're Done
 
 
 
@@ -29,7 +29,7 @@
     3. Extract **Source** files to `C:\Program Files\AB Tools\`
     4. Add `C:\Program Files\AB Tools\src\Scripts\` to **System Path**
     5. Open **Command Prompt** and Run `set PYTHONPATH=%PYTHONPATH%;C:\Program Files\AB Tools\src\scripts`
-    5. All Scripts will now be Available from **Windows Command Prompt**
+    6. All Scripts will now be Available from **Windows Command Prompt**
 
 
 
@@ -38,8 +38,8 @@
     2. Open a Windows **Git BASH** Terminal
     3. Run Following Command Sequence
 
-    
-    
+
+
 ```
      cd C:\Program Files\AB Tools\
      git fetch
