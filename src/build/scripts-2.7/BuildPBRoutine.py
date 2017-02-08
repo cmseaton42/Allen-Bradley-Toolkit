@@ -1,11 +1,11 @@
 #region - Imports
 import sys, os, shutil
-if sys.platform == "win32": import _winreg
+import _winreg
 from PIA.Rockwell.Types import CommonType
 from PIA.Rockwell.XML.Tools import *
 from PIA.Rockwell.XML.Templates import *
 from PIA.Rockwell.Util.Templates.Datatypes.PushButton import *
-#from __future__ import print_function
+from __future__ import print_function
 
 import lxml
 from lxml import etree
