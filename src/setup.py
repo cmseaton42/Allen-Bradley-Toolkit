@@ -21,7 +21,7 @@ with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
 setup(
     # Project MetaData
     name='Preh',
-    version='0.1.0.post0',
+    version='1.0a1',
     description='Allen-Bradley Python Toolbelt',
     long_description=long_description,
     url='https://bitbucket.org/cmseaton42/allen-bradley-python-tools',
