@@ -14,8 +14,8 @@
 * **Get Required Dependencies**
 
     1. Install **Python 2.7** from https://www.python.org/Downloads
-    2. Add `C:\python27\` and `C:\Python27\Scripts\` to your **System Path**
-    3. Open a **Command Prompt** window as **Aministrator**
+    2. Open a **Command Prompt** window as **Aministrator**
+    3. Run `set PATH=%PATH%;C:\python27\;C:\Python27\Scripts\`
     4. Run `set PATHEXT=%PATHEXT%;.PY`
     5. You're Done
 
