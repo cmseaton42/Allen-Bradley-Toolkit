@@ -13,27 +13,27 @@
 
 * **Get Required Dependencies**
 
-    1. Install **Python 2.7** from https://www.python.org/Downloads
-    2. Open a **Command Prompt** window as **Aministrator**
-    3. Run `set PATH=%PATH%;C:\python27\;C:\Python27\Scripts\`
-    4. Run `set PATHEXT=%PATHEXT%;.PY`
-    5. You're Done
+    * Install **Python 2.7** from https://www.python.org/Downloads
+    * Open a **Command Prompt** window as **Aministrator**
+    * Run `set PATH=%PATH%;C:\python27\;C:\Python27\Scripts\`
+    * Run `set PATHEXT=%PATHEXT%;.PY`
+    * You're Done
 
 
 
 * **Download and Install Package**
 
-    1. Open a **Command Prompt** window as **Aministrator**
-    2. Run `pip install Preh`
-    3. All Scripts will now be Available from **Windows Command Prompt**
-    4. You're Done
+    * Open a **Command Prompt** window as **Aministrator**
+    * Run `pip install Preh`
+    * All Scripts will now be Available from **Windows Command Prompt**
+    * You're Done
 
 
 
 * **Update Package/ Version Control**
-    1. Open Windows **Command Prompt** as *Administrator*
-    2. Run `pip install Preh -U`
-    3. You're Done
+    * Open Windows **Command Prompt** as *Administrator*
+    * Run `pip install Preh -U`
+    * You're Done
 
 
 
