@@ -31,7 +31,7 @@
 
 
 * **Update Package/ Version Control**
-    * Open Windows **Command Prompt** as *Administrator*
+    * Open Windows **Command Prompt** as **Administrator**
     * Run `pip install Preh -U`
     * You're Done
 
