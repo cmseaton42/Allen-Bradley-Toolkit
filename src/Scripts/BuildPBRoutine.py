@@ -19,7 +19,7 @@ RUNGS           = []
 #region - Help
 HELP = '''
 Usage Pattern:
-> python BuildPBRoutine.py [path/to/input/file.csv] [path/to/output/file.L5X]
+> BuildPBRoutine [path/to/input/file.csv] [path/to/output/file.L5X]
 
 Usage Notes:
 - If no output file is given, then the output will be written to the current
@@ -30,11 +30,11 @@ Usage Notes:
 
 Example 1:
 $Reads Data from '.pb.csv' and writes to 'root/Desktop/Station5_PB.L5X'
-> python BuildPBRoutine.py ./pb.csv /root/Desktop/Station5_PB.L5X
+> BuildPBRoutine ./pb.csv /root/Desktop/Station5_PB.L5X
 
 Example 2:
 $Reads Data from '.pb.csv' and writes to './PB.L5X'
-> python BuildPBRoutine.py ./pb.csv
+> BuildPBRoutine ./pb.csv
 '''
 #endregion
 
