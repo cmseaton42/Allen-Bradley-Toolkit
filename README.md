@@ -13,7 +13,7 @@
 
 * **Get Required Dependencies**
 
-    * Install [Python 2.7.13](https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
+    * Download and Install [Python 2.7.13](https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
     * Open a **Command Prompt** window as **Aministrator**
     * Run `set PATH=%PATH%;C:\python27\;C:\Python27\Scripts\`
     * Run `set PATHEXT=%PATHEXT%;.PY`
