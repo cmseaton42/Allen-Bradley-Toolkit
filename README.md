@@ -42,6 +42,6 @@
 ### **Who do I talk to?** ###
 
 * **Canaan Seaton - Project Owner**
-    * *Github: @cmseaton42*
+    * *GitHub: [cmseaton42](https://github.com/cmseaton42)*
 * **Josh Duzan - Contributor**
-    * *Github: @LordJosh186*
+    * *GitHub: [LordJosh](https://github.com/LordJosh186)*
