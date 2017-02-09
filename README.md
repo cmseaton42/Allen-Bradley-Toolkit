@@ -40,6 +40,6 @@
 ### **Who do I talk to?** ###
 
 * **Canaan Seaton - Project Owner**
-    * *Email: cseaton@evanaautomation.com*
+    * *Email: cseaton42@gmail.com*
 * **Josh Duzan - Contributor**
     * *Email: jduzan@evanaautomation.com*
