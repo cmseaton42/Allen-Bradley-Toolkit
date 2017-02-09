@@ -14,6 +14,9 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
+#To Build run: python setup.py sdist bdist_wheel
+#To upload run: twine upload dist/*
+
 # Get the long description from the README file
 with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
     long_description = f.read()
@@ -21,7 +24,7 @@ with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
 setup(
     # Project MetaData
     name='Preh',
-    version='1.0a2',
+    version='1.0a2.post0',
     description='Allen-Bradley Python Toolbelt',
     long_description=long_description,
     url='https://bitbucket.org/cmseaton42/allen-bradley-python-tools',
