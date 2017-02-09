@@ -6,7 +6,7 @@
 
 ### **What is this repository for?** ###
 
-* The goal of this project is to generate a python package that wraps the standard lxml python package for use easy L5X file manipulation as well as to create usable scripts that implement this package.
+* The goal of this project is to generate a python package to wrap the standard lxml python package for easy L5X file manipulation as well as to create usable scripts that implement this package.
 
 ### **How do I get set up?** ###
 
