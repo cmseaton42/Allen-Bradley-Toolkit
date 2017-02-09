@@ -42,6 +42,6 @@
 ### **Who do I talk to?** ###
 
 * **Canaan Seaton - Project Owner**
-    * *Email: cseaton42@gmail.com*
+    * *Github: @cmseaton42*
 * **Josh Duzan - Contributor**
-    * *Email: jduzan@evanaautomation.com*
+    * *Github: @LordJosh186*
