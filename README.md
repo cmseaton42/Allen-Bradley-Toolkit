@@ -44,4 +44,4 @@
 * **Canaan Seaton - Project Owner**
     * *GitHub: [Cmseaton42](https://github.com/cmseaton42)*
 * **Josh Duzan - Contributor**
-    * *GitHub: [LordJosh](https://github.com/LordJosh186)*
+    * *GitHub: [LordJosh186](https://github.com/LordJosh186)*
