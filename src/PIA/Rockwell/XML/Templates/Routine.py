@@ -16,15 +16,15 @@ class Routine(Base_Template):
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self, Name, Description = ""):
-            #Initialize Member Attributes
-            assert isValidTag(Name)
-            self.root = etree.Element("Routine")
-            self.root.set("Name", Name)
-            self.root.set("Type", "RLL")
-            if Description != "":
-                self.Desc = etree.SubElement(self.root, 'Description')
-                self.setDescription(Description)
-                self.root.append(self.Desc)
+        #Initialize Member Attributes
+        assert isValidTag(Name)
+        self.root = etree.Element("Routine")
+        self.root.set("Name", Name)
+        self.root.set("Type", "RLL")
+        if Description != "":
+            self.Desc = etree.SubElement(self.root, 'Description')
+            self.setDescription(Description)
+            self.root.append(self.Desc)
 
     def addRung(self, Rung):
         assert etree.iselement(Rung.getLocalRoot()) and Rung.getLocalRoot().tag == "Rung"

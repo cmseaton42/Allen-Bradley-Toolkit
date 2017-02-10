@@ -18,11 +18,11 @@ class TagComment(Base_Template):
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self, Description):
-            #Initialize Member Attributes
-            self.root = etree.Element("Comment")
-            self.root.set("Operand", "Specifier")
-            setDescription(Description)
-            self.setDescription(Description)
+        #Initialize Member Attributes
+        self.root = etree.Element("Comment")
+        self.root.set("Operand", "Specifier")
+        setDescription(Description)
+        self.setDescription(Description)
 
     def setDescription(self, Description):
         assert type(Description) == str

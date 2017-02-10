@@ -16,17 +16,17 @@ class Rung(Base_Template):
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self, Number, Comment = "", Content = "NOP();"):
-            #Initialize Member Attributes
-            self.root = etree.Element("Rung")
-            self.root.set("Number", str(Number))
-            self.root.set("Type", "N")
-            if Comment != "":
-                self.Comment = etree.SubElement(self.root, 'Comment')
-                self.setComment(Comment)
-                self.root.append(self.Comment)
+        #Initialize Member Attributes
+        self.root = etree.Element("Rung")
+        self.root.set("Number", str(Number))
+        self.root.set("Type", "N")
+        if Comment != "":
+            self.Comment = etree.SubElement(self.root, 'Comment')
+            self.setComment(Comment)
+            self.root.append(self.Comment)
 
-            self.rungContent = etree.SubElement(self.root, "Text")
-            self.setRungContent(Content)
+        self.rungContent = etree.SubElement(self.root, "Text")
+        self.setRungContent(Content)
 
     def setRungContent(self, Content):
         assert type(Content) == str

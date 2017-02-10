@@ -16,8 +16,8 @@ class Base_Template():
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self):
-            #Initialize Member Attributes
-            self.root = None
+        #Initialize Member Attributes
+        self.root = None
 
     def checkIfChild(self, nodeTag):
         assert type(nodeTag) == str

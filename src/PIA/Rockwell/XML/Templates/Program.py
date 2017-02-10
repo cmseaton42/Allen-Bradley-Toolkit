@@ -16,15 +16,15 @@ class Program(Base_Template):
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self, Name, Type = "Normal", Description = ""):
-            #Initialize Member Attributes
-            assert isValidTag(Name)
-            self.root = etree.Element("Program")
-            self.root.set("Name", Name)
-            self.root.set("Type", Type)
-            if Description != "":
-                self.Desc = etree.SubElement(self.root, 'Description')
-                self.setDescription(Description)
-                self.root.append(self.Desc)
+        #Initialize Member Attributes
+        assert isValidTag(Name)
+        self.root = etree.Element("Program")
+        self.root.set("Name", Name)
+        self.root.set("Type", Type)
+        if Description != "":
+            self.Desc = etree.SubElement(self.root, 'Description')
+            self.setDescription(Description)
+            self.root.append(self.Desc)
 
     def setMainRoutine(self, RoutineName):
         assert type(RoutineName) == str

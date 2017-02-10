@@ -16,18 +16,18 @@ class Datatype(Base_Template):
     For Information on this see the provided L5X Manual from Rockwell
     '''
     def __init__(self, TypeName, Description = ""):
-            #Initialize Member Attributes
-            assert isValidTag(TypeName)
-            self.root = etree.Element("Datatype")
-            self.root.set("Name", TypeName)
-            self.root.set("Family", "NoFamily")
-            self.root.set("Class", "User")
-            if Description != "":
-                self.Desc = etree.SubElement(self.root, 'Description')
-                self.setDescription(Description)
-                self.root.append(self.Desc)
+        #Initialize Member Attributes
+        assert isValidTag(TypeName)
+        self.root = etree.Element("Datatype")
+        self.root.set("Name", TypeName)
+        self.root.set("Family", "NoFamily")
+        self.root.set("Class", "User")
+        if Description != "":
+            self.Desc = etree.SubElement(self.root, 'Description')
+            self.setDescription(Description)
+            self.root.append(self.Desc)
 
-            self.Members = etree.SubElement(self.root, "Members")
+        self.Members = etree.SubElement(self.root, "Members")
 
     def getMembersRoot(self):
         return self.Members
