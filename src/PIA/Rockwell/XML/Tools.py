@@ -4,11 +4,13 @@ try:
 except ImportError as e:
     print e.message
 
+
 def setAsTarget(template):
     try:
         template.root.set("use", "Target")
     except:
         template.set("use", "Target")
+
 
 def setAsContext(template):
     try:
@@ -16,8 +18,11 @@ def setAsContext(template):
     except:
         template.set("use", "Context")
 
+
 def isValidTag(TagName):
     strCopy = TagName
-    if "_" in strCopy: strCopy = strCopy.replace("_", "")
-    if strCopy[0].isdigit(): return False
+    if "_" in strCopy:
+        strCopy = strCopy.replace("_", "")
+    if strCopy[0].isdigit():
+        return False
     return strCopy.isalnum()

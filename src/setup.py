@@ -27,7 +27,7 @@ setup(
     version='1.0a2.post0',
     description='Allen-Bradley Python Toolbelt',
     long_description=long_description,
-    url='https://bitbucket.org/cmseaton42/allen-bradley-python-tools',
+    url='https://cmseaton42.github.io/Allen-Bradley-Toolkit/',
 
     # Author Information
     author='Canaan Seaton',
