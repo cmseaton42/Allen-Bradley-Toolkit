@@ -9,3 +9,8 @@ class CommonType:
     STRING = "STRING"
     COUNTER = "COUNTER"
     TIMER = "TIMER"
+
+class UserDefinedTypes:
+    ALARM = "ST_Alarms"
+    ONE_BUTTON  = "PB_OneButton"
+    TWO_BUTTON  = "PB_TwoButton"
