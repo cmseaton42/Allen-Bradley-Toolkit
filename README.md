@@ -25,7 +25,7 @@
 * **Download and Install Package**
 
     * Open a **Command Prompt** window as **Aministrator**
-    * Run `pip install Preh`
+    * Run `pip install allen-bradley-toolkit`
     * All Scripts will now be Available from **Windows Command Prompt**
     * You're Done
 
@@ -33,7 +33,7 @@
 
 * **Update Package/ Version Control**
     * Open Windows **Command Prompt** as **Administrator**
-    * Run `pip install Preh -U`
+    * Run `pip install allen-bradley-toolkit -U`
     * You're Done
 
 

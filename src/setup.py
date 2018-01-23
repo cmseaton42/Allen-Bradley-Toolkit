@@ -23,9 +23,9 @@ with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
 
 setup(
     # Project MetaData
-    name='Preh',
-    version='1.0a2.post0',
-    description='Allen-Bradley Python Toolbelt',
+    name='allen-bradley-toolkit',
+    version='1.0a1.post0',
+    description='Allen-Bradley Python Toolkit',
     long_description=long_description,
     url='https://cmseaton42.github.io/Allen-Bradley-Toolkit/',
 
@@ -51,9 +51,5 @@ setup(
     install_requires=[
         'lxml==3.6.0',
         'enum'
-    ],
-    scripts=[
-        'Scripts/BuildPBRoutine.py'
-    ],
-    zip_safe=False
+    ]
 )
