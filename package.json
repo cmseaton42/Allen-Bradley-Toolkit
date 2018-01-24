@@ -1,0 +1,22 @@
+{
+  "name": "allen-bradley-toolkit",
+  "version": "1.0.0",
+  "description": "[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=plastic)](https://gitter.im/Allen-Bradley-Toolkit/Lobby) [![PyPI](https://img.shields.io/pypi/v/nine.svg?style=plastic)](https://pypi.python.org/pypi/Preh)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmseaton42/Allen-Bradley-Toolkit.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cmseaton42/Allen-Bradley-Toolkit/issues"
+  },
+  "scripts": {
+    "deploy": "cd src && python setup.py bdist_wheel && twine upload dist/* --skip-existing"
+  },
+  "homepage": "https://github.com/cmseaton42/Allen-Bradley-Toolkit#readme"
+}
