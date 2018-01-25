@@ -1,4 +1,4 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=plastic)](https://gitter.im/Allen-Bradley-Toolkit/Lobby) [![PyPI](https://img.shields.io/pypi/v/nine.svg?style=plastic)](https://pypi.org/project/allen-bradley-toolkit/)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=plastic)](https://gitter.im/Allen-Bradley-Toolkit/Lobby) [![PyPI](https://img.shields.io/pypi/v/nine.svg?style=plastic)](https://pypi.org/project/allen-bradley-toolkit/) 
 
 # **OVERVIEW** #
 
