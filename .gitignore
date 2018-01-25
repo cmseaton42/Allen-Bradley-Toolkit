@@ -15,6 +15,10 @@
 # Visual Studio Code Settings Folder 
 .vscode
 
+# Ignore build and distribution directories
+/build/ 
+/dist/
+
 #pypirc
 *.pypirc
 
