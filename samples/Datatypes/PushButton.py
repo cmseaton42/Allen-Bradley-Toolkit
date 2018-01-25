@@ -4,8 +4,8 @@ try:
 except ImportError as e:
     print e.message
 
-from PIA.Rockwell.Types import CommonType
-from PIA.Rockwell.XML.Templates import *
+from AB.Rockwell.Types import CommonType
+from AB.Rockwell.XML.Templates import *
 
 class PB_OneButton(Datatype):
     def __init__(self):
