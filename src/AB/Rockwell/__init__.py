@@ -1,3 +1,3 @@
 __all__ = ["XML", "Types"]
 
-from Types import CommonType, UserDefinedTypes
+from AB.Rockwell.Types import CommonType
