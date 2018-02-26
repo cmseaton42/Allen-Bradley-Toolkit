@@ -24,7 +24,7 @@ with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
 setup(
     # Project MetaData
     name='allen-bradley-toolkit',
-    version='1.1a1.post1',
+    version='1.4a1.post1',
     description='Allen-Bradley Python Toolkit',
     long_description=long_description,
     url='https://cmseaton42.github.io/Allen-Bradley-Toolkit/',
@@ -49,7 +49,6 @@ setup(
     keywords='PLC Tools XML L5X LXML Rockwell Allen Bradley Allen-Bradley Python Python27',
     packages=find_packages(exclude=['Docs', 'tests']),
     install_requires=[
-        'lxml==3.6.0',
-        'enum'
+        'lxml>=3.6.0'
     ]
 )

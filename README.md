@@ -12,6 +12,11 @@
 
 ### **How do I get set up?** ###
 
+* **Install C++ Build Tools**
+    * Click this [Link](http://go.microsoft.com/fwlink/?LinkId=691126&__hstc=268264337.20dfe66f0053415ec618cc41e1e5ebee.1519654047676.1519654047676.1519656772032.2&__hssc=268264337.1.1519656772032&__hsfp=2795554280&fixForIE=.exe) to Download Installer
+    * Run Installer
+    * You're Done
+
 * **Get Required Dependencies**
 
     * Download and Install [Python 2.7.13](https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
