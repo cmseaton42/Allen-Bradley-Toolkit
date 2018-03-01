@@ -12,21 +12,21 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-here = path.abspath(path.dirname(__file__))
+# here = path.abspath(path.dirname(__file__))
 
 #To Build run: python setup.py sdist bdist_wheel
 #To upload run: twine upload dist/*
 
 # Get the long description from the README file
-with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
-    long_description = f.read()
+# with open(path.join(here, 'Description.txt'), encoding='utf-8') as f:
+#     long_description = f.read()
 
 setup(
     # Project MetaData
     name='allen-bradley-toolkit',
-    version='1.6a1.post1',
+    version='2.0.1',
     description='Allen-Bradley Python Toolkit',
-    long_description=long_description,
+    long_description="TODO: Fill in Later",
     url='https://cmseaton42.github.io/Allen-Bradley-Toolkit/',
 
     # Author Information
